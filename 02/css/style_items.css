@@ -1,0 +1,319 @@
+/* ----------------------- */
+/* ここから商品画像表示の各要素 */
+/* ----------------------- */
+
+/* 画像表示用ラジオボタンを非表示に */
+input[type="radio"]{
+	display: none;
+}
+/* 拡大画像表示域の設定 */
+.items_img_area{
+	width: 100%;
+	height: auto;
+}
+/* 拡大画像表示域の設定 */
+.items_img_area .enlarge_img{
+	position: relative;
+	width: 100%;
+}
+/* 商品名およびシェアボタンの配置と装飾 */
+.items_header{
+	position: relative;
+	display: flex;
+	margin-bottom: 5%;
+}
+.items_header_share{
+	display: flex;
+	flex-direction: column;
+	width: auto;
+	height: 4rem;
+	justify-content: space-around;
+}
+/* 商品名の装飾と配置 */
+h2{
+	position: absolute;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	font-size: 4rem;
+}
+/* 商品価格の装飾と配置 */
+h3{
+	width: 100%;
+	text-align: center;
+	font-size: 3rem;
+	margin: 15% 0 10% 0;
+}
+/* 購入ボタンの装飾と配置 */
+.add_cart{
+	width: 100%;
+	text-align: center;
+}
+.add_cart>a{
+	display: inline-block;
+	padding: 10px;
+	color: #fffddf;
+	font-size: 2.5rem;
+	background-color: #4da5c9;
+	border-radius: 15px;
+}
+
+/* サムネイル表示域を下に下げるための疑似要素 */
+.items_img_area .enlarge_img::before{
+	display: block;
+	padding-top: 120%;
+	content: "";
+}
+
+/* 画像の不透明度を0にしておく */
+.items_img_area .enlarge_img img{
+	position: absolute;
+	opacity: 0;
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	top: 0;
+	left: 0;
+}
+
+/* サムネイル表示域の設定 */
+.items_img_area .thumbs{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 100%;
+	text-align: center;
+	margin-top: 5vh;
+}
+
+/* justify-contentで最後尾を左に寄せるため疑似要素 */
+.items_img_area .thumbs::after{
+	content: "";
+	display: block;
+	width: 30%;
+}
+
+/* 以下、サムネイル個別の設定 */
+/* 背景に黒を設定 */
+.items_img_area .thumbs li{
+	width: 30%;
+	margin-bottom: 5vh;
+	background-color: #3c3736;
+}
+.items_img_area .thumbs li label{
+	display: inline-block;
+}
+
+/* 画像の不透明度を下げておく */
+.items_img_area .thumbs li label img{
+	width: 100%;
+	object-fit: cover;
+	opacity: .3;
+}
+
+/* ラジオボタンで選択された各画像の不透明度を元に戻す */
+#items1:checked ~ .enlarge_img img:nth-child(1),
+#items1:checked ~ .thumbs li:nth-child(1) label img{
+	opacity: 1;
+}
+#items2:checked ~ .enlarge_img img:nth-child(2),
+#items2:checked ~ .thumbs li:nth-child(2) label img{
+	opacity: 1;
+}
+#items3:checked ~ .enlarge_img img:nth-child(3),
+#items3:checked ~ .thumbs li:nth-child(3) label img{
+	opacity: 1;
+}
+#items4:checked ~ .enlarge_img img:nth-child(4),
+#items4:checked ~ .thumbs li:nth-child(4) label img{
+	opacity: 1;
+}
+#items5:checked ~ .enlarge_img img:nth-child(5),
+#items5:checked ~ .thumbs li:nth-child(5) label img{
+	opacity: 1;
+}
+
+/* ----------------------- */
+/* ここまで商品画像表示の各要素 */
+/* ----------------------- */
+
+
+/* --------------------------- */
+/* ここから商品スペック表示の各要素 */
+/* --------------------------- */
+
+/* 商品スペック開閉用のチェックボックスを非表示 */
+#items_spec{
+	display: none;
+}
+
+
+/* 商品スペック全体の固定と位置調整および装飾 */
+.items_spec_area{
+	position: fixed;
+	display: block;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 9000;
+	transform: translateX(100%);
+	background: rgba(60,55,54,.7);
+	color: #fffddf;
+	transition: .3s;
+}
+/* チェックボックスにより商品スペックを画面内に移動 */
+#items_spec:checked ~ main .items_spec_area{
+	transform: translateX(0%);
+}
+
+/* 商品スペック開くエリアの配置と装飾 */
+.spec_open{
+	position: fixed;
+	display: flex;
+	top: 45%;
+	left: 0;
+	width: 180px;
+	height: 50px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0 0 15px 15px;
+	transform: translatex(-115px) rotate(90deg);
+	background: rgba(60,55,54,.7);
+}
+.spec_open .open_text{
+	display: inline-block;
+	font-size: 1.6rem;
+}
+
+/* 商品スペック表示エリアの配置と装飾 */
+.spec_text_area{
+	position: absolute;
+	width: 80%;
+	height: 90%;
+	margin: 10%;
+	overflow: scroll;
+}
+
+/* webkit系の場合スクロールバーを非表示 */
+.spec_text_area::-webkit-scrollbar{
+	display: none;
+}
+
+/* 商品スペック各テキストの装飾 */
+.spec_text_area>p{
+	font-size: 1.5rem;
+	line-height: 2rem;
+	margin: 10% 0
+}
+
+/* スペックリストの各装飾 */
+/* スペックリストは差別化のためフォントを変更 */
+.spec_list{
+	font-family: 'Noto Sans JP',sans-serif;
+	font-size: 1.5rem;
+	line-height: 2.4rem;
+}
+
+/* カラーリストの位置調整 */
+.spec_list>li>.color_list>li{
+	padding-left: 5.3rem;
+}
+
+/* カラーサンプルの作成 */
+.color{
+	display: inline-block;
+	width: 1.5rem;
+	height: 1.5rem;
+	margin-right: 0.5rem;
+	border: 1px solid #fffddf;
+}
+.natural{
+	background-color: #eabc2a;
+}
+.black{
+	background-color: #3c3736;
+}
+.vin_red{
+	background-color: #c73822;
+}
+
+/* スペック内のリンクにアンダーラインを設定 */
+.spec_contact{
+	text-decoration: underline;
+}
+
+/* 商品スペック閉じるエリアの配置と装飾 */
+.spec_close{
+	position: absolute;
+	top: 45%;
+	right: 0;
+	width: 180px;
+	height: 50px;
+	text-align: center;
+	transform: translatex(50px) rotate(90deg);
+}
+
+.spec_close .close_text{
+	font-size: 1.6rem;
+}
+
+/* --------------------------- */
+/* ここまで商品スペック表示の各要素 */
+/* --------------------------- */
+
+/* ------------------------ */
+/* ------------------------ */
+/* ここからPC向けメディアクエリ */
+/* ------------------------ */
+/* ------------------------ */
+
+@media screen and (min-width: 900px){
+	/* メイン内部をflex表示と最大幅の設定 */
+	main{
+		max-width: 900px;
+		margin: 10vh auto;
+		display: flex;
+		padding: 0;
+		justify-content: space-between;
+	}
+	/* 商品画像エリアの幅を縮小 */
+	.items_img_area{
+		width: 50%;
+	}
+	/* 商品スペックエリアの縮小と再配置 */
+	.items_spec_area{
+		position: relative;
+		z-index: 8000;
+		width: 45%;
+		height: 100%;
+		margin: 0 5% 0 0;
+		padding: 0;
+		transform: translateX(0%);
+		background-color: #fffddf;
+	}
+	/* 商品スペックエリア内の各テキストの調整 */
+	.spec_text_area{
+		width: 100%;
+		height: auto;
+		overflow: visible;
+		color: #3c3736;
+		background-color: #fffddf;
+	}
+	.spec_text_area>p{
+		font-size: 1.1rem;
+		line-height: 2rem;
+		margin: 10% 0 20% 0;
+	}
+	.spec_list{
+		font-size: 1.1rem;
+		margin-bottom: 30%;
+	}
+	.spec_list>li>.color_list>li{
+		padding-left: 3.9rem;
+	}
+	.spec_open,
+	.spec_close{
+		display: none;
+	}
+}
