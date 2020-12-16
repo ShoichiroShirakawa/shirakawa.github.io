@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<!-- メタ情報 -->
+	<meta charset="UTF-8">
+	<title>Blind Falcon Online Shop</title>
+	<meta name="description" content="ギター＆ベースオンラインショップ">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="pics/favicon.ico">
+	
+	<!-- cssとフォントの読み込み -->
+	<link rel="stylesheet" href="css/reset.css">
+	<link href="https://fonts.googleapis.com/css2?family=Lateef&family=Noto+Sans+JP&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/style_index.css">
+
+</head>
+
+<body>
+	<!-- メニュースライド用のチェックボックス -->
+	<input type="checkbox" id="mb_menu">
+	<!-- モーダル開閉用のチェックボックス -->
+	<input type="checkbox" id="modal">
+	<header class="slide">
+		<!-- サイトロゴ -->
+		<h1>
+			<a href="#"><img src="pics/brand_logo.svg" alt="サイトロゴ"></a>
+		</h1>
+		<p>Official Online Shop</p>
+		<!-- PC用メニュー -->
+		<nav class="nav_pc">
+			<ul>
+				<li><a href="index.html">HOME</a></li>
+				<li><a href="#">ABOUT</a></li>
+				<li><a href="#">GUITAR</a></li>
+				<li><a href="#">BASS</a></li>
+				<li><a href="#">MY ACCOUNT</a></li>
+				<li><a href="#">BLOG</a></li>
+				<li><a href="#">CONTACT</a></li>
+			</ul>
+		</nav>
+	</header>
+	
+	<!-- ※※メニュースライド時の見た目の観点から※※ -->
+	<!-- ※※カートボタンおよびハンバーガーメニューは※※ -->
+	<!-- ※※ヘッダーから独立しています※※ -->
+	
+	<!-- カートボタン -->
+	<label for="modal" class="cart_button">
+		<i class="fas fa-shopping-cart"></i>
+	</label>
+	<!-- カートボタンタップ時モーダルウィンドウ -->
+	<div id="cart_message">
+		<!-- モーダル背景 -->
+		<label for="modal" class="modal_overlay">
+		<!-- モーダル内テキスト等 -->
+		<div class="modal_content_area">
+			<div class="modal_text">
+				<p>You have no items in your cart.</p>
+			</div>
+			<div class="modal_close">
+				<p>
+					Back to Shopping
+				</p>
+			</div>
+		</div>
+		</label>
+	</div>
+	<!-- モバイル用スライドメニュー -->
+	<nav class="nav_slide slide">
+		<!-- モバイル用メニュー内容 -->
+		<ul class="nav_mb">
+			<li><a href="#">HOME</a></li>
+			<div class="nav_mb_space"></div>
+			<li><a href="#">ABOUT</a></li>
+			<div class="nav_mb_space"></div>
+			<li><a href="#">GUITAR</a></li>
+			<li><a href="#">BASS</a></li>
+			<div class="nav_mb_space"></div>
+			<li><a href="#">MY ACCOUNT</a></li>
+			<div class="nav_mb_space"></div>
+			<li><a href="#">BLOG</a></li>
+			<div class="nav_mb_space"></div>
+			<li><a href="#">CONTACT</a></li>
+		</ul>
+		<!-- 文字サイズが変わるため分離 -->
+		<ul class="slide_aside">
+			<li><a href="#">Terms &amp; Conditions</a></li>
+			<li><a href="#">Privacy Policy</a></li>
+		</ul>
+		<!-- SNSシェアボタンはここ -->
+		<div class="slide_share">
+			<!-- Twitter -->
+			<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-lang="en" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+			<!-- Facebook -->
+			<!-- ボタンのテキストを英語にしたいのでJSにて設置 -->
+			<div id="fb-root"></div>
+			<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0" nonce="JFwCZUp2"></script>
+			<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">シェア</a></div>
+		</div>
+				<!-- ハンバーガーメニュー -->
+		<div class="hamburger slide">
+			<label for="mb_menu" class="hambur_bar">
+				<span class="bar_top"></span>
+				<span class="bar_middle"></span>
+				<span class="bar_bottom"></span>
+			</label>
+		</div>
+	</nav>
+	
+	<main class="slide">
+		<!-- 商品リスト表示エリア -->
+		<div class="item_list_area">
+			<ul class="item_list">
+				<!-- liタグより個別商品表示 -->
+				<li>
+					<a href="items.html">
+					<div class="item_image">
+						<img src="pics/quote/eaecf346705207716a5a.png" alt="商品画像">
+					</div>
+					<!-- 文字数によらず縦に配置するためのul -->
+					<ul class="wrap_column">
+						<li class="item_name"><p>JB-4A</p></li>
+						<li class="item_price"><p>200,000 JPY</p></li>
+					</ul>
+				</a></li>
+				<li><a href="#">
+					<!-- 売り切れ商品は画像表示域にクラスを追加 -->
+					<div class="item_image sold_out">
+						<img src="pics/quote/0000002432212_uRHJmA0.jpg" alt="商品画像">
+					</div>
+					<!-- 文字数によらず縦に配置するためのul -->
+					<ul class="wrap_column">
+						<li class="item_name"><p>SW-4P Limited</p></li>
+						<li class="item_price"><p>300,000 JPY</p></li>
+					</ul>
+				</a></li>
+				<li><a href="#">
+					<!-- 売り切れ商品は画像表示域にクラスを追加 -->
+					<div class="item_image sold_out">
+						<img src="pics/quote/0000002432222_dCeI14q.jpg" alt="商品画像">
+					</div>
+					<!-- 文字数によらず縦に配置するためのul -->
+					<ul class="wrap_column">
+						<li class="item_name"><p>Maple Heart</p></li>
+						<li class="item_price"><p>350,000 JPY</p></li>
+					</ul>
+				</a></li>
+				<li><a href="#">
+					<!-- 売り切れ商品は画像表示域にクラスを追加 -->
+					<div class="item_image sold_out">
+						<img src="pics/quote/0000002446552_UXFf7M2.jpg" alt="商品画像">
+					</div>
+					<!-- 文字数によらず縦に配置するためのul -->
+					<ul class="wrap_column">
+						<li class="item_name"><p>JB-5A</p></li>
+						<li class="item_price"><p>280,000 JPY</p></li>
+					</ul>
+				</a></li>
+				<li><a href="#">
+					<!-- 売り切れ商品は画像表示域にクラスを追加 -->
+					<div class="item_image sold_out">
+						<img src="pics/quote/0000002359302_ADk3ivl.jpg" alt="商品画像">
+					</div>
+					<!-- 文字数によらず縦に配置するためのul -->
+					<ul class="wrap_column">
+						<li class="item_name"><p>LP-6A Tropic</p></li>
+						<li class="item_price"><p>400,000 JPY</p></li>
+					</ul>
+				</a></li>
+				<li><a href="#">
+					<!-- 売り切れ商品は画像表示域にクラスを追加 -->
+					<div class="item_image sold_out">
+						<img src="pics/quote/0000002420932_7VeJaZQ.jpg" alt="商品画像">
+					</div>
+					<!-- 文字数によらず縦に配置するためのul -->
+					<ul class="wrap_column">
+						<li class="item_name"><p>SH-6P UPLIGHT</p></li>
+						<li class="item_price"><p>220,000 JPY</p></li>
+					</ul>
+				</a></li>
+				<li><a href="#">
+					<!-- 売り切れ商品は画像表示域にクラスを追加 -->
+					<div class="item_image sold_out">
+						<img src="pics/quote/0000002453622_Yw1sE03.jpg" alt="商品画像">
+					</div>
+					<!-- 文字数によらず縦に配置するためのul -->
+					<ul class="wrap_column">
+						<li class="item_name"><p>Blue Rose</p></li>
+						<li class="item_price"><p>290,000 JPY</p></li>
+					</ul>
+				</a></li>
+			</ul>
+		</div>
+	</main>
+	<footer class="slide">
+		<!-- PC向けレイアウトを囲むdiv -->
+		<div class="pc_footer">
+			<!-- シェアボタン開閉用のチェックボックス -->
+			<input type="checkbox" id="share">
+			<!-- SNSシェアアイコン -->
+			<label for="share" class="share_icon">
+				<i class="fas fa-share-alt-square"></i>
+			</label>
+			<!-- PC向けレイアウト用SNSシェアボタン -->
+			<div class="footer_share">
+				<p>Share to SNS</p>
+				<!-- Twitter -->
+				<a href="#" class="tw_footer_share">
+					<i class="fab fa-twitter"></i>
+				</a>
+				<!-- Facebook -->
+				<a href="#" class="fb_footer_share">
+					<i class="fab fa-facebook-f"></i>
+				</a>
+			</div>
+			<!-- PC向けレイアウト用aside -->
+			<ul class="footer_aside">
+				<li><a href="#">Terms &amp; Conditions</a></li>
+				<li><a href="#">Privacy Policy</a></li>
+			</ul>
+
+		</div>
+		<ul class="footer_sns">
+			<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+			<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+			<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+		</ul>
+		<p class="copyright">© 2020 Shouichirou Shirakawa</p>
+	</footer>
+
+	<!-- javascriptの読み込み -->
+	<script src="js/checkbox_reset.js"></script>
+</body>
+
+</html>
