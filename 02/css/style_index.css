@@ -1,0 +1,640 @@
+@charset "UTF-8";
+
+/* 共通部分
+---------------------- */
+
+html{
+	font-size: 100%;
+}
+
+body{
+	font-family: 'Sawarabi Mincho', sans-serif;
+	line-height: 1;
+	color: #3c3736;
+	background-color: #fffddf;
+	height: 100vh;
+}
+
+a{
+	text-decoration: none;
+}
+
+li{
+	list-style-type: none;
+}
+
+/* スライドメニュー開閉時トランジション */
+.slide{
+	transition: .3s;
+}
+
+/* PC向けレイアウトを非表示 */
+.nav_pc,
+.pc_footer{
+	display: none;
+}
+
+/* ----------------- */
+/* ここからヘッダー要素 */
+/* ----------------- */
+
+/* サイトロゴ関連の設定
+--------------------*/
+header h1{
+	width: 80%;
+	height: auto;
+	position: relative;
+	margin: 0 auto;
+}
+header h1 img{
+	display: flex;
+	width: 85%;
+	height: auto;
+	margin: 10vh auto 0 auto;
+}
+
+/* オフィシャルオンラインショップの文言 */
+header>p{
+	text-align: center;
+	font-size: 5vw;
+	margin-top: 3vh;
+}
+
+/* ----------------- */
+/* ここまでヘッダー要素 */
+/* ----------------- */
+
+
+/* ------------------------------------- */
+/* ここからカートボタンとモーダルウィンドウ関係 */
+/* ------------------------------------- */
+
+/* カートボタンの設定と装飾
+----------------------*/
+.cart_button{
+	position: fixed;
+	z-index: 9000;
+	top: 0;
+	right: 0;
+	width: 60px;
+	height: 60px;
+	margin: 3vw 1.5vw 0 0;
+	padding: 10px 0 0 5px;
+	color: #fffddf;
+	border-radius: 6px;
+	background-color: #3c3736;
+	transition: .2s;
+}
+.cart_button>i{
+	font-size: 2.5rem;
+}
+#mb_menu:checked ~ .cart_button{
+	opacity: 0;
+}
+
+/* モーダル開閉用チェックボックスを非表示 */
+#modal{
+	display: none;
+}
+
+/* モーダルウィンドウを全画面表示する設定
+-----------および開閉時のトランジション */
+#cart_message{
+	position: fixed;
+	z-index: 9990;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 60px;
+	text-align: center;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity .3s,visibility .3s;
+}
+
+/* チェックボックスによりモーダルウィンドウを表示 */
+#modal:checked ~ #cart_message{
+	opacity: 1;
+	visibility: visible;
+}
+
+/* モーダルウィンドウ内テキスト等の装飾 */
+#cart_message .modal_content_area{
+	display: inline-block;
+	z-index: 9920;
+	position: relative;
+	width: 100%;
+	height: auto;
+	top: 40%;
+}
+#cart_message .modal_content_area .modal_text>p,
+#cart_message .modal_content_area .modal_close>p{
+	color: #fffddf;
+	font-size: 1.5rem;
+}
+#cart_message .modal_content_area .modal_close>p{
+	display: inline-block;
+	margin-top: 15px;
+	padding: 10px;
+	background-color: #4da5c9;
+	border-radius: 15px;
+}
+
+/* モーダルウィンドウ背景の装飾 */
+#cart_message .modal_overlay{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(60,55,54,.7);
+}
+
+/* ------------------------------------- */
+/* ここまでカートボタンとモーダルウィンドウ関係 */
+/* ------------------------------------- */
+
+/* ---------------------------- */
+/* ここからモバイル用スライドメニュー */
+/* ---------------------------- */
+
+/* スライド用チェックボックスを非表示に */
+#mb_menu{
+	display: none;
+}
+/* スライドメニュー全体 */
+.nav_slide{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: -45vw;
+	width: 45vw;
+	height: 100vh;
+	padding: 10vh 0 0 2%;
+	z-index: 1;
+	color: #fffddf;
+	background-color: #3c3736;
+}
+/* スライドメニュー開閉時に全体を動かす */
+#mb_menu:checked ~ .slide{
+	transform: translateX(45vw);
+}
+/* スライドメニューの各設定 */
+.nav_slide .nav_mb li{
+	position: relative;
+	font-size: 1.5rem;
+	margin-bottom: 6px;
+}
+.nav_slide .nav_mb .nav_mb_space{
+	background-color: #fffddf;
+	width: 95%;
+	height: 1px;
+	margin: 2.3vh 0;
+}
+
+/* 文字サイズが変わるため分離 */
+.nav_slide .slide_aside{
+	margin-top: 10vh;
+}
+.nav_slide .slide_aside li{
+	margin: 2vh 0 0 0;
+}
+
+/* スライドメニュー内SNSシェアボタン */
+.nav_slide .slide_share{
+	margin-top: 10vh;
+	width: 20vh;
+	display: flex;
+	justify-content: space-between;
+}
+
+/* ハンバーガーメニューの装飾とアニメーション */
+.hamburger{
+	z-index: 9998;
+	position: absolute;
+	display: inline-block;
+	top: 0;
+	left: 45vw;
+	margin: 3vw 0 0 1.5vw;
+}
+.hamburger label{
+	position: relative;
+	display: inline-block;
+	box-sizing: border-box;
+	width: 60px;
+	height: 60px;
+	padding: 0 20%;
+	border-radius: 6px;
+	cursor: pointer;
+	background-color: #3c3736;
+}
+.bar_top,
+.bar_middle,
+.bar_bottom{
+	display: inline-block;
+	position: absolute;
+	background-color: #fffddf;
+	width: 36px;
+	height: 3px;
+	border-radius: 3px;
+	transition: .2s;
+}
+.bar_top{
+	top: 10px;
+}
+.bar_middle{
+	top: 29px;
+}
+.bar_bottom{
+	bottom: 10px;
+}
+#mb_menu:checked ~ .nav_slide>
+.hamburger>.hambur_bar>.bar_top{
+	width: 24px;
+	transform: translate(-3px,11px) rotate(-45deg);
+}
+#mb_menu:checked ~ .nav_slide>
+.hamburger>.hambur_bar>.bar_bottom{
+	width: 24px;
+	transform: translate(-3px,-10px) rotate(45deg);
+}
+
+/* ----------------------------- */
+/* ここまでモバイル用スライドメニュー */
+/* ---------------------------- */
+
+/* --------------- */
+/* ここからメイン要素 */
+/* --------------- */
+
+/* メイン共通 */
+main{
+	padding: 10% 3vw;
+	width: 100%;
+	height: auto;
+}
+
+/* 商品リスト全体の設定 */
+.item_list_area .item_list{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+/* ----------------------- */
+/* ここから商品リスト個別の設定 */
+/* ----------------------- */
+
+/* 商品リスト個別の表示域 */
+.item_list_area .item_list>li{
+	width: 44vw;
+	height: auto;
+	margin: 0 0 4vh 0;
+}
+/* 商品画像表示域 */
+.item_list_area .item_list li a .item_image,
+.item_list_area .item_list>li>a>.sold_out{
+	position: relative;
+	width: 100%;
+	height: calc(44vw * 1.25);
+	overflow: hidden;
+}
+/* 売り切れ商品は黒くオーバーレイ */
+.item_list_area .item_list>li>a>.sold_out::before{
+	display: inline;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	color: #fffddf;
+	text-align: center;
+	padding-top: 50%;
+	font-size: 8vw;
+	content: 'Sold out';
+	background-color: rgba(60,55,54,.7);
+}
+/* 画像のobject-fitを設定 */
+.item_list_area .item_list li a .item_image img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.item_list_area .item_list>li>a .wrap_column{
+	display: flex;
+	flex-direction: column;
+}
+/* 商品名および価格 */
+.item_list_area .item_list>li>a .wrap_column .item_name{
+	display: inline-block;
+	margin: 20px 0 10px 0;
+	font-size: 1rem;
+}
+.item_list_area .item_list>li>a .wrap_column .item_price{
+	display: inline-block;
+	font-size: 1.2rem;
+}
+
+/* ----------------------- */
+/* ここまで商品リスト個別の設定 */
+/* ----------------------- */
+
+/* --------------- */
+/* ここまでメイン要素 */
+/* --------------- */
+
+/* ----------------- */
+/* ここからフッター要素 */
+/* ----------------- */
+
+/* フッター共通 */
+footer{
+	position: relative;
+	width: 100%;
+	height: 30vh;
+	padding: 0 3vw;
+	text-align: center;
+}
+
+/* フッターSNSリンクの各設定 */
+.footer_sns{
+	display: flex;
+	justify-content: space-between;
+	margin: 0 20%;
+}
+.footer_sns li a{
+	display: inline-block;
+	width: 3rem;
+	height: 3rem;
+	font-size: 2rem;
+	color: #fffddf;
+	background-color: #3c3736;
+	border-radius: 1.5rem;
+	text-align: center;
+}
+.footer_sns li a i{
+	vertical-align: middle;
+	margin-top: 10%;
+}
+
+/* コピーライト表記の設定 */
+.copyright{
+	position: absolute;
+	bottom: 10%;
+	width: 100%;
+	height: auto;
+}
+
+/* ----------------- */
+/* ここまでフッター要素 */
+/* ----------------- */
+
+
+
+/* ------------------------ */
+/* ------------------------ */
+/* ここからPC向けメディアクエリ */
+/* ------------------------ */
+/* ------------------------ */
+
+@media screen and (min-width: 900px){
+	
+	/* ---------------------- */
+	/* モバイル向けメニューを隠す */
+	/* ---------------------- */
+	
+	.nav_slide{
+		visibility: hidden;
+	}
+	
+	/* ----------------- */
+	/* ここからヘッダー要素 */
+	/* ----------------- */
+	
+	/* ヘッダー各要素の調整 */
+	header{
+		padding: 0;
+	}
+	header h1{
+		max-width: 700px;
+	}
+	
+	header>p{
+		font-size: 2rem;
+	}
+	
+	/* PC向けメニューの表示と装飾 */
+	.nav_pc{
+		visibility: visible;
+		display: flex;
+		width: 90%;
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 8vh 0 4vh 0;
+		border-bottom: 1px solid #3c3736;
+	}
+	.nav_pc ul{
+		display: flex;
+		justify-content: flex-start;
+	}
+	.nav_pc ul li{
+		font-size: 1.1rem;
+		margin: 0 1.1rem 0 0;
+		position: relative;
+	}
+	/* PC向けメニューhover時の下線アニメーション */
+	.nav_pc ul li::after{
+		display: block;
+		content: '';
+		position: absolute;
+		bottom: -10;
+		left: 0;
+		width: 0;
+		height: 1px;
+		background-color: #3c3736;
+		transition: .3s;
+	}
+	.nav_pc ul li:hover::after{
+		width: 103%;
+	}
+	
+	
+	/* ----------------- */
+	/* ここまでヘッダー要素 */
+	/* ----------------- */
+	
+	
+	/* --------------- */
+	/* ここからメイン要素 */
+	/* --------------- */
+	
+	/* メイン全体の調整 */
+	main{
+		padding: 0 5%;
+	}
+	
+	/* 商品リストエリアの最大横幅を設定 */
+	.item_list_area{
+		max-width: 900px;
+		margin: 4vh auto;
+	}
+	
+	/* 商品リストの配置の変更と高さの調整 */
+	.item_list_area .item_list>li{
+		width: 20vw;
+		max-width: 22%;
+		height: auto;
+	}
+	.item_list_area .item_list li a .item_image,
+	.item_list_area .item_list>li>a>.sold_out{
+		width: 100%;
+		max-height: calc(900px * 0.28);
+}
+
+	/* 売り切れ表示の配置とサイズの調整 */
+	.item_list_area .item_list>li>a>.sold_out::before{
+		font-size: 2.5rem;
+	}
+	/* justify-contentで最後尾を左に寄せるため疑似要素 */
+	.item_list_area .item_list::after{
+		content: "";
+		display: block;
+		width: 20vw;
+		max-width: 22%;	}
+	
+	/* 商品リストにマウスオーバー時に
+	売り切れオーバーレイを固定するためのz-index */
+	.item_list_area .item_list>li>a>.sold_out::before{
+		z-index: 6500;
+	}
+	
+	/* 商品リストにマウスオーバー時の各アニメーション */
+	/* 画像アニメーション */
+	.item_list_area .item_list li a .item_image img{
+		transition: .3s;
+	}
+	.item_list_area .item_list li:hover a>.item_image>img{
+		transform: scale(1.1,1.1);
+	}
+	/* 下線アニメーション */
+	.item_list_area .item_list li a .wrap_column .item_name>p,
+	.item_list_area .item_list li a .wrap_column .item_price>p{
+		display: inline;
+		position: relative;
+	}
+	.item_list_area .item_list li a .wrap_column .item_name>p::after,
+	.item_list_area .item_list li a .wrap_column .item_price>p::after{
+		display: block;
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 0;
+		height: 1px;
+		background-color: #3c3736;
+		transition: .3s;
+	}
+	.item_list_area .item_list li:hover >a .wrap_column .item_name>p::after,
+	.item_list_area .item_list li:hover >a .wrap_column .item_price>p::after{
+		width: 100%;
+	}
+	
+	/* --------------- */
+	/* ここまでメイン要素 */
+	/* --------------- */
+	
+	
+	/* ----------------- */
+	/* ここからフッター要素 */
+	/* ----------------- */
+	
+	footer{
+		width: 90vw;
+		max-width: 900px;
+		height: 40vh;
+		margin: 30vh auto 0 auto;
+		padding: 0;
+	}
+	
+	/* PC向けフッター要素の表示とレイアウト */
+	.pc_footer{
+		display: block;
+		position: relative;
+		top: 0;
+		text-align: left;
+	}
+	/* シェアボタン開閉用のチェックボックスを非表示 */
+	#share{
+		display: none;
+	}
+	/* SNSシェアアイコンの装飾 */
+	.share_icon i{
+		font-size: 3rem;
+	}
+	
+	/* PC向けレイアウト用SNSシェアボタンの装飾と配置 */
+	.footer_share{
+		position: absolute;
+		top: -5.5rem;
+		left: 1rem;
+		display: none;
+		justify-content: space-around;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		vertical-align: middle;
+		width: 150px;
+		padding: 1% 1% 1% 20px;
+		border-radius: 10px 10px 10px 0;
+		background-color: #3c3736;
+	}
+	.footer_share::before{
+		content: '';
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 20px 20px 0 0;
+		border-color: #3c3736 transparent transparent transparent;
+	}
+	.footer_share p,
+	.footer_share a i{
+		color: #fffddf;
+	}
+	.footer_share p{
+		width: 100%;
+	}
+	.footer_share a{
+		font-size: 1.5rem;
+		margin: 5% auto 0 0;
+	}
+	
+	/* チェックボックスによりシェアボタンを表示 */
+	#share:checked ~ .footer_share{
+		display: flex;
+	}
+	
+	/* PC向けレイアウト用asideの配置と装飾 */
+	.footer_aside{
+		padding-top: 3vh;
+	}
+	.footer_aside li{
+		margin: 3vh 0;
+		text-decoration: underline;
+	}
+	
+	/* SNSリンクのレイアウトをPC向けに調整 */
+	.footer_sns{
+		position: absolute;
+		margin: 0;
+		width: 30%;
+		top: 0;
+		right: 0;
+		
+	}
+	
+	
+	
+}
