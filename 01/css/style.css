@@ -1,0 +1,857 @@
+@charset "UTF-8";
+
+/* 共通部分
+---------------------- */
+html{
+	font-size: 100%;
+}
+
+body{
+	font-family: 'Noto Sans JP',sans-serif;
+	line-height: 1;
+	color: #3e3a39;
+	background-color: #f7f8f8;
+}
+
+a{
+	text-decoration: none;
+}
+
+/* 下線が欲しいリンク用クラス */
+.link_underline{
+	text-decoration: underline;
+}
+
+li{
+	list-style-type: none;
+}
+
+/* 要素を横並びにするための汎用div */
+.wrap_row{
+	display: flex;
+	justify-content: space-between;
+}
+
+/* モバイル用要素を隠す */
+.nav_mb_area,
+.header_mb_whitespase,
+.hamburger {
+	display: none;
+}
+
+/* ----------------- */
+/* ここからヘッダー要素 */
+/* ----------------- */
+
+
+/* ヘッダー共通
+---------------------- */
+header {
+	color: #f7f8f8;
+	background-color: #3e3a39;
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	height: 90px;
+	white-space: nowrap;
+	justify-content: space-between;
+}
+
+/* サイトロゴ */
+.site_logo,
+.site_logo>a,
+.site_logo>a:hover,
+.site_logo>a:visited{
+	font-family: 'Orbitron', sans-serif;
+	color: #e37422;
+	font-size: 60px;
+	position: relative;
+	width: 100%;
+	min-width: 950px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+/* PC用メニュー共通
+---------------------- */
+.nav_pc{
+	position: sticky;
+	top: 0;
+	white-space: nowrap;
+	background-color: #3e3a39;
+	font-size: 20px;
+	width: 100%;
+	height: 70px;
+	margin: 0 auto;
+	text-align: center;
+	z-index: 9999;
+}
+.nav_pc a,
+.nav_pc a:hover,
+.nav_pc a:visited{
+	display: inline;
+	font-size: 18px;
+	color: #f7f8f8;
+	margin: 5px 10px;
+}
+
+/* PC用メニュー上段 */
+.upper_menu{
+	display: flex;
+	width: 100%;
+	max-width: 970px;
+	min-width: 950px;
+	height: 35px;
+	justify-content: space-between;
+	margin: 0 auto;
+	padding: 5px 5%;
+}
+
+/* PC用メニュー下段 */
+.under_menu{
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
+	padding: 5px 11%;
+	width: 100%;
+	max-width: 970px;
+	min-width: 950px;
+	height: 35px;
+}
+
+/* PC用メニュー下段＿検索フォーム */
+.search_pc>input{
+	height: 30px;
+	background-color: #f7f8f8;
+	border-radius: 20px;
+	padding: 3px 10px;
+	font-size: 0.7em;
+	text-align: start;
+	outline: none;
+}
+.search_pc>input::-ms-clear{
+	display: none;
+}
+
+/* PC用ヘッダー最下部グラデーション */
+.header_pc_grad{
+	position: relative;
+	background: linear-gradient(to bottom, rgba(62,58,57,1)0%,rgba(62,58,57,1) 20%,rgba(62,58,57,0) 100%);
+	height: 20px;
+	width: 100%;
+}
+
+
+
+/* ----------------- */
+/* ここまでヘッダー要素 */
+/* ----------------- */
+
+
+
+/* ----------------- */
+/* ここからmain内の要素 */
+/* ----------------- */
+
+/* メイン共通
+---------------------- */
+main{
+	position: relative;
+	margin: 60px 10% auto 10%;
+	width: 80vw;
+	min-width: 950px;
+	height: auto;
+	min-height: 100vh;
+}
+
+/* Topics表示スペース */
+.topics_list{
+	display: flex;
+	width: 100%;
+	height: auto;
+	padding: 8px;
+	background-color: #3e3a39;
+	justify-content: space-between;
+}
+
+/* Topics内個別リンク */
+.topics{
+	display: inline-block;
+	position: relative;
+	width: 24%;
+	height: auto;
+	z-index: 7900;
+	overflow: hidden;
+}
+.topics img{
+	width: 100%;
+	height: auto;
+}
+
+/* topics要素にhoverするための
+見出し、オーバーレイ、アニメーション等 */
+.topics_headline{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: auto;
+	min-height: 50%;
+	padding: 0 2%;
+	z-index:8000;
+	color: #f7f8f8;
+	line-height: 1.5;
+	background-color: rgba(62,58,57,0.5);
+	transform: translate3d(0,70%,0);
+	transition: .3s;
+}
+.topics_overlay{
+	position: absolute;
+	width: 100%;
+	height: 10%;
+	bottom: 0;
+	left: 0;
+	background: linear-gradient(to top, rgba(62,58,57,1) 0%,rgba(62,58,57,1) 20%,rgba(62,58,57,0) 100%);
+	z-index: 8001;
+	opacity: 1;
+	transition: .3s;
+}
+.topics:hover .topics_headline{
+	transform: translate3d(0,0,0);
+}
+.topics:hover .topics_overlay{
+	opacity: 0;
+}
+
+
+/* メインコンテンツ部分 */
+.contents_area{
+	margin: 40px 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+/* 新着ニュース表示域 */
+.news {
+	flex: 5;
+	padding: 10px 50px 10px 0;
+}
+
+
+/* 新着ニュース個別記事の各設定
+-------------------------- */
+
+/* 記事表示域 */
+.news article{
+	width: 100%;
+	height: auto;
+	margin-bottom: 50px;
+}
+/* 記事タイトル */
+.news article .news_title{
+	font-size: 1.7em;
+	font-weight: 500;
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	margin-bottom: 10px;
+}
+.news article .news_title:hover{
+	text-decoration: underline;
+}
+
+/* 記事タグ */
+.news article .tag_area{
+	margin: 4px 0;
+}
+.news article .tag_area>a{
+	color: #f7f8f8;
+	background-color: #3e3a39;
+	padding: 0 5px;
+	
+}
+.news article .date{
+	font-size: 1.1em;
+	margin: auto 5px 0 0;
+}
+
+/* 記事内画像 */
+.news article img{
+	width: 100%;
+	height: auto;
+	margin: 10px 0;
+	border: 5px solid #3e3a39;
+	opacity: 1;
+	transition: .2s;
+}
+.news article img:hover{
+	opacity: 0.8;
+}
+
+/* 記事本文の細かな調整 */
+.news article p{
+	text-indent: 1em;
+	line-height: 1.3;
+	margin: 10px 0 20px 0;
+}
+.news article .netabare{
+	text-indent: 0em;
+	font-weight: bold
+}
+.news article .fulltext_link{
+	text-decoration: underline;
+	font-size: 0.93em;
+	font-style: italic;
+}
+
+/* サイドメニュー表示域 */
+.side_menu{
+	flex: 2;
+	/* border-left: 2px solid #3e3a39; */
+}
+
+/* サイドメニュー個別記事の各設定
+-------------------------- */
+.side_article{
+	width: 100%;
+	height: auto;
+	margin-bottom: 100px;
+}
+
+/* サイドメニューカテゴリー */
+.side_article .side_category{
+	width: 100%;
+	height: 45px;
+	padding: 5px 0 0 5px;
+	font-family: 'Orbitron', sans-serif;
+	font-size: 2em;
+	color: #e37422;
+	background-color: #3e3a39;
+}
+.side_article:nth-of-type(4) .side_category{
+	font-size: 1.6em;
+	padding-top: 9px;
+}
+.side_article:nth-of-type(5) .side_category{
+	font-size: 1.2em;
+}
+
+/* サイド記事内画像 */
+.side_article article img{
+	width: 100%;
+	height: auto;
+	margin: 10px 0;
+	transition: .3s;
+}
+.side_article article img:hover{
+	opacity: 0.8;
+}
+
+/* サイド記事タグ */
+.side_article article .side_tag_area{
+	margin-bottom: 10px;
+	padding: 1px 0;
+}
+.side_article article .side_tag_area>a{
+	font-size: 0.9em;
+	color: #f7f8f8;
+	background-color: #3e3a39;
+	padding: 0 4px;
+}
+
+/* サイド記事タイトル */
+.side_article article .side_title{
+	font-size: 1.3em;
+	font-weight: 500;
+}
+.side_article article .side_title:hover{
+	text-decoration: underline;
+}
+
+/* サイド記事補足 */
+.side_article article>p{
+	margin-top: 15px;
+	font-size: 0.9em;
+	line-height: 1.3em;
+}
+.side_link{
+	text-decoration: underline;
+}
+
+/* Today's News関連設定 */
+.side_article .side_list{
+	list-style-image: url(../pics/list_style.svg);
+}
+.side_article .side_list li{
+	margin: 5px 0 5px 1.2em;
+	font-size: 0.85em;
+}
+.side_article .side_list li>a{
+	margin: 5px 0;
+	height: ;
+}
+.side_article .side_list li>a:hover{
+	font-weight: 500;
+	text-decoration: underline;
+}
+.side_article .side_list p{
+	background-color: #3e3a39;
+	color: #f7f8f8;
+	font-size: 1em;
+	width: 100%;
+	height: auto;
+	margin-top: 2px;
+	padding: 3px 0 5px 3px;
+}
+
+
+/* main下部、ページリンクの各設定
+-------------------------- */
+.page_area{
+	display: flex;
+	justify-content: space-between;
+	margin: 90px 0 90px 40px;
+	width: 40%;
+	max-width: 450px;
+	height: auto;
+}
+.page_area .current,
+.page_area a,
+.page_area p{
+	font-size: 1em;
+	width: auto;
+	height: 105%;
+	padding: 8px 12px;
+}
+.page_area .current{
+	background-color: #e37422;
+	border: 1px solid #3e3a39;
+}
+.page_area a{
+	border: 1px solid #3e3a39;
+	transition: .2s;
+}
+.page_area a:hover{
+	color: #f7f8f8;
+	background-color: #3e3a39;
+}
+
+
+/* ------------------- */
+/* ここまでmain内の要素 */
+/* ------------------- */
+
+
+/* --------------------- */
+/* ここからfooter内の要素 */
+/* --------------------- */
+
+footer{
+	position: relative;
+	width: 100%;
+	min-width: 950px;
+	height: auto;
+	min-height: 200px;
+	color: #f7f8f8;
+	padding: 20px 10% 10px 10%;
+	background-color: #3e3a39;
+}
+footer>.wrap_row{
+	justify-content: flex-start;
+}
+
+/* フッター内ロゴと付随テキスト */
+.footer_text_area{
+	width: 60%;
+}
+.footer_text_area .footer_logo_area{
+	display: flex;
+	align-items: flex-end;
+}
+.footer_text_area .footer_logo_area .footer_logo{
+	font-family: 'Orbitron', sans-serif;
+	font-size: 3em;
+	color: #e37422;
+}
+.footer_text_area .footer_logo_area .tsuite{
+	font-size: 1.2em;
+	margin-left: 5px;
+	padding-bottom: 5px;
+}
+
+/* フッター内サイト説明 */
+.footer_text_area p{
+	margin: 30px 0;
+}
+
+/* フッター内SNSエリアの各設定 */
+.footer_sns_area{
+	margin-left: 20%;
+}
+.footer_sns_area p{
+	font-size: 1.5em;
+	margin: 20px 0;
+}
+.sns_icon li,.sns_link li{
+	font-size: 1.5em;
+	margin-bottom: 12px;
+}
+.sns_link li{
+	margin-left: 5px;
+}
+.fa-facebook-f{
+	width: 1em;
+	text-align: center;
+}
+
+/* コピーライト表記 */
+footer .copyright{
+	width: 100%;
+	font-size: 0.9em;
+	margin: 5px 0;
+	bottom: 0;
+	text-align: center;
+}
+
+/* --------------------- */
+/* ここまでfooter内の要素 */
+/* --------------------- */
+
+/* ページトップへ戻るボタンの各設定 */
+.page_top{
+	display: block;
+	position: fixed;
+	right: 15px;
+	bottom: 0;
+	text-align: center;
+}
+.page_top a{
+	display: block;
+	background-color:#e37422;
+	width: 100%;
+	height: auto;
+	padding: 2px 4px 4px 4px;
+}
+.page_top a i{
+	font-size: 2rem;
+}
+.page_top a p{
+	font-family: 'Orbitron', sans-serif;
+	font-size: 0.5rem;
+}
+
+
+/* メディアクエリ_モバイル用 */
+@media screen and (max-width: 750px) {
+	/* PC用メニューを非表示 */
+	.nav_pc{
+		display: none;
+	}
+
+	/* モバイル用でアニメーションされたくない要素を
+	アニメーションしてない風に上書き */
+	.topics:hover .topics_overlay{
+		opacity: 1;
+	}
+	.page_area a:hover{
+		color: #3e3a39;
+		background-color:#f7f8f8;
+	}
+	.news article img:hover,
+	.side_article article img:hover{
+		opacity: 1;
+	}
+	.side_article .side_list li>a:hover{
+		font-weight: normal;
+	}
+	.page_top a{
+		opacity: 1;
+	}
+
+	/* アンダーラインの追加が必要なa要素はここ */
+	.news_title,
+	.topics_headline,
+	.side_article article .side_title,
+	.side_article .side_list li{
+		text-decoration: underline;
+	}
+
+	/* -------------------------------------- */
+	/* ヘッダーは追加要素が多いためこの段階で記述 */
+	/* -------------------------------------- */
+
+	/* ヘッダーの固定と各要素をモバイル用に調整 */
+	header{
+		position: fixed;
+		top: 0;
+		z-index: 9999;
+		height: auto;
+		box-shadow: 0 5px 20px 15px #f7f8f8;
+	}
+	.site_logo,
+	.site_logo>a,
+	.site_logo>a:hover,
+	.site_logo>a:visited{
+		width: auto;
+		min-width: initial;
+		font-size: 9vw;
+		vertical-align: middle;
+	}
+	
+	/* ハンバーガーメニューの装飾 */
+	.hamburger{
+		position: relative;
+		display: block;
+		width: 9vw;
+		height: 8vw;
+		margin: 15px 0 15px 5%;
+	}
+	.hamburger>span{
+		position: absolute;
+		width: 100%;
+		height: 1vw;
+		top: 50%;
+		transform: translateY(-50%);
+		background-color: #f7f8f8;
+	}
+	.hamburger::before,
+	.hamburger::after{
+		content: '';
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 1vw;
+		background-color: #f7f8f8;
+	}
+	.hamburger::before{
+		top: 0;
+	}
+	.hamburger::after{
+		bottom: 0;
+	}
+
+	/* モバイル用メニューの装飾と設定 */
+	.nav_mb_area{
+		display: flex;
+		justify-content: space-between;
+		position: fixed;
+		width: 100%;
+		height: 100vh;
+		z-index: 9999;
+		padding: 15px 0 0 5%;
+		background-color: rgba(62,58,57,0.9);
+		transition: .2s;
+		transform: translateX(-150%);
+	}
+	.nav_mb{
+		display: block;
+		width: auto;
+		font-size: 2em;
+	}
+	.nav_mb>ul>.search_pc>input{
+		width: 70%;
+		color: #3e3a39;
+		caret-color: #f7f8f8;
+	}
+	.nav_mb>ul>.search_pc>.search_button>img{
+		width: 25px;
+		height: auto;
+	}
+	.nav_mb>ul>li{
+		padding: 2px 0;
+	}
+	.nav_mb>ul>li>.nav_mb_space{
+		height: 0.8em;
+	}
+
+	/* サイトロゴを手っ取り早くセンタリングするためのdiv */
+	.header_mb_whitespase{
+		position: relative;
+		display: block;
+		margin-top: 15px;
+		margin-right: 5%;
+		width: 9vw;
+		height: 8vw;
+	}
+
+	/* 閉じるボタンの各設定 */
+	.close_menu{
+		position: relative;
+		display: block;
+		width: 50px;
+		height: 50px;
+		margin-right: 5%;
+	}
+	.close_menu::before,
+	.close_menu::after{
+		content: '';
+		display: block;
+		position: absolute;
+		top: 50%;
+		width: 100%;
+		height: 5px;
+		background-color: #f7f8f8;
+	}
+	.close_menu::before{
+		transform: rotate(45deg);
+	}
+	.close_menu::after{
+		transform: rotate(-45deg);
+	}
+	.toggle{
+		transform: translateX(0);
+	}
+
+
+	/* 各要素のサイズおよびレイアウトを
+	モバイル用に変更(細かな調整は別途記述) */
+	main{
+		min-width: initial;
+		width: 100%;
+		margin: 140px 0 80px 0;
+		padding: 0 1%;
+	}
+	.topics{
+		margin: 2%;
+		width: 46%;
+	}
+	.topics_list{
+		flex-wrap: wrap;
+		padding: 0;
+	}
+	.contents_area{
+		display: block;
+		width: 100%;
+	}
+	.news{
+		width: 100%;
+		padding: 0;
+		margin: 80px 0;
+	}
+	.side_menu{
+		width: 100%;
+	}
+	.side_article:nth-of-type(5){
+		display: none;
+	}
+	.side_article .side_category,
+	.side_article:nth-of-type(4) .side_category{
+		height: 12vw;
+		font-size: 10vw;
+		text-align: center;
+		vertical-align: middle;
+		padding: auto;
+	}
+	/* Today's Newsの「y」がはみ出るので
+	ここのみpaddingをリセット */
+	.side_article:nth-of-type(4) .side_category{
+		padding: 0;
+	}
+	.page_area{
+		width: 100%;
+		max-width: initial;
+		margin: 0;
+		padding: 0 12%;
+	}
+	footer{
+		min-width: initial;
+		width: 100%;
+		padding: 0 10% 5% 10%;
+	}
+	footer>.wrap_row,
+	.footer_text_area,
+	.footer_text_area .footer_logo_area{
+		display: block;
+		width: 100%;
+		justify-content: space-between;
+		text-align: center;
+	}
+
+	/* --------------------------- */
+	/* ここからより細かい各要素の調整 */
+	/* --------------------------- */
+
+	/* topics内のオーバーレイ要素をモバイル用に調整 */
+	.topics_headline{
+		transform: translate3d(0,0,0);
+		height: 100%;
+		font-size: 3.3vw;
+	}
+
+	/* メイン個別記事の各要素を
+	モバイル向けに変更および調整 */
+	.news article{
+		margin-bottom: 80px;
+		height: auto;
+	}
+	.news article .news_title{
+		position: absolute;
+		font-size: 4.5vw;
+		margin: 1.5em 0 0 35%;
+		line-height: 1.1em;
+	}
+	.news article .news_title>a{
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 4;
+	}
+	.news article .tag_area>a{
+		font-size: 1.2em;
+	}
+	.news article img{
+		width: 30%;
+		border: 2px solid #3e3a39;
+	}
+	.news article p,
+	.news article .fulltext_link{
+		display: none;
+	}
+
+	/* サイド個別記事の各要素を
+	モバイル向けに変更および調整 */
+	.side_article article .side_tag_area>a{
+		font-size: 1.2em;
+	}
+	.side_article article .side_title{
+		font-size: 6vw;
+		line-height: 1.4em;
+	}
+	.side_article article>p{
+		display: none;
+	}
+	.side_article .side_list li{
+		font-size: 4.5vw;
+		margin: 5px 0 15px 1.2em;
+		line-height: 1.4em;
+	}
+
+	/* footer内の各要素を
+	モバイル向けに変更および調整 */
+	.footer_text_area .footer_logo_area{
+		padding: 30px 0 0 0;
+		height: auto;
+	}
+	.footer_text_area .footer_logo_area .footer_logo{
+		font-size: 7vw;
+		margin: 0 0 3vw 0;
+	}
+	.footer_text_area .footer_logo_area .tsuite{
+		padding: 15px 0 0 0;
+	}
+	.footer_text_area .footer_logo_area .tsuite,
+	.footer_text_area p{
+		font-size: 3.5vw;
+		line-height: 1.5em;
+	}
+	.footer_text_area p{
+		margin: 10%;
+	}
+	.footer_sns_area{
+		margin: 20% 10% 10% 10%;
+	}
+	.footer_sns_area>.wrap_row{
+		justify-content: center;
+	}
+}
+
