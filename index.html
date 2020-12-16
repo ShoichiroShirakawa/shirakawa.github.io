@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<!-- メタ情報 -->
+	<meta charset="UTF-8">
+	<title>Deep gamE</title>
+	<meta name="description" content="ビデオゲーム情報サイト">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="pics/favicon.ico">
+	
+	<!-- cssとフォントの読み込み -->
+	<link rel="stylesheet" href="css/reset.css">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- jQueryの読み込み -->
+	<script src="https://code.jquery.com/jquery-2.2.4.js"integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="crossorigin="anonymous"></script>
+	<!-- モバイルメニュー用スクリプト -->
+	<script>
+		$(function() {
+			const hum = $('.hamburger, .close_menu, .search_button, .nav_mb>ul>li>a')
+			const nav = $('.nav_mb_area')
+			hum.on('click', function(){
+				nav.toggleClass('toggle');
+			});
+		});
+	</script>
+	<!-- ページトップへ戻るボタン用スクリプト -->
+	<script>
+		jQuery(function() {
+			let appear = false;
+			let pagetop = $('.page_top');
+			$(window).scroll(function () {
+				if ($(this).scrollTop() > 100) {  //100pxスクロールしたら
+				if (appear == false) {
+					appear = true;
+					pagetop.stop().animate({
+    			      'bottom': '0' //下から0pxの位置に
+    	    		}, 200); //0.2秒かけて現れる
+				}
+			} else {
+				if (appear) {
+					appear = false;
+					pagetop.stop().animate({
+    			      'bottom': '-100px' //下から-100pxの位置に
+    			    }, 200); //0.2秒かけて隠れる
+				}
+			}
+		});
+		pagetop.click(function () {
+	  	  	$('body, html').animate({ scrollTop: 0 }, 500); //0.5秒かけてトップへ戻る
+				return false;
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<header>
+		<!-- モバイル用メニュー -->
+		<div class="nav_mb_area">
+			<!-- メニュー本体 -->
+			<nav class="nav_mb">
+				<ul>
+					<!-- 検索フォームはPC用レイアウトのものを流用 -->
+					<form method="get" action="#" class="search_pc">
+						<input type="text" size="14" placeholder="">
+						<button class="search_button"><img src="pics/Search.svg" width="20px" height="auto"></button>
+					</form>		
+					<li><div class="nav_mb_space"></div></li>
+					<li><a href="#">News</a></li>
+					<li><a href="#">Reviews</a></li>
+					<li><a href="#">Interviews</a></li>
+					<li><a href="#">Column</a></li>
+					<li><div class="nav_mb_space"></div></li>
+					<li><a href="#">PC</a></li>
+					<li><a href="#">PS4 / PS5</a></li>
+					<li><a href="#">Xbox One / Xbox Series X</a></li>
+					<li><a href="#">Nintendo Switch</a></li>
+					<li><a href="#">Mobile</a></li>
+					<li><a href="#">Hardware</a></li>
+					<li><div class="nav_mb_space"></div></li>
+					<li><a href="#">Game release<br>& event calendar</a></li>
+					<li><div class="nav_mb_space"></div></li>
+					<li><a href="#">Others</a></li>
+				</ul>
+			</nav>
+			<!-- 閉じるボタン -->
+			<span class="close_menu"></span>
+		</div>
+		<!-- ハンバーガーメニュー -->
+		<div class="hamburger">
+			<span></span>
+		</div>
+		
+		<!-- サイトロゴ -->
+		<h1 class="site_logo">
+			<a href="#">Deep gamE</a>
+		</h1>
+
+		<!-- モバイル版でサイトロゴを手っ取り早くセンタリングするためのdiv -->
+		<div class="header_mb_whitespase"></div>
+	</header>
+	
+		<!-- PC用メニュー -->
+		<!-- ※※※position:stickyのためにheaderタグ内ではなくbodyタグ直下に配置※※※ -->
+		<nav class="nav_pc">
+			<ul>
+				<!-- PC用メニュー上段 -->
+				<li class="upper_menu">
+					<a href="#">Home</a>
+					<a href="#">PC</a>
+					<a href="#">PS4 / PS5</a>
+					<a href="#">Xbox One / Xbox Series X</a>
+					<a href="#">Nintendo Switch</a>
+					<a href="#">Mobile</a>
+					<a href="#">Hardware</a>
+				</li>
+				<!-- PC用メニュー下段 -->
+				<li class="under_menu">
+					<a href="#">News</a>
+					<a href="#">Reviews</a>
+					<a href="#">Interviews</a>
+					<a href="#">Column</a>
+					<a href="#">Others</a>
+					<!-- PC用メニュー下段＿検索フォーム -->
+					<form method="get" action="#" class="search_pc">
+						<input type="text" size="14" placeholder="">
+						<button class="search_button"><img src="pics/Search.svg" width="20px" height="auto"></button>
+					</form>
+				</li>
+			</ul>
+			<!-- PC用ヘッダー最下部グラデ -->
+			<div class="header_pc_grad"></div>
+		</nav>
+	
+	<main>
+		
+		<!-- Topics表示欄 -->
+		<ul>
+			<li class="topics_list">
+				<!-- 各Topicsへのリンク -->
+				<a href="#" class="topics">
+					<!-- Topics内画像 -->
+					<img src="pics/topic01.png" alt="注目ニュース1">
+					<!-- 記事見出しへのオーバーレイ -->
+					<span class="topics_headline">
+						『The Funeral Orange』の新たなPVが公開。霊感を持つ少女が死者の願いを叶えるために奔走する。
+					</span>
+					<!-- テキスト見切れをカバーするためのオーバーレイ -->
+					<span class="topics_overlay"></span>
+				</a>
+				<a href="#" class="topics">
+					<!-- Topics内画像 -->
+					<img src="pics/topic02.png" alt="注目ニュース2">
+						<span class="topics_headline">
+							怪作『I am Bonsai』にまさかの続編か。製作者ToЯmas氏がSNSにてスクリーンショットを公開
+						</span>
+					<!-- テキスト見切れをカバーするためのオーバーレイ -->
+					<span class="topics_overlay"></span>
+				</a>
+				<a href="#" class="topics">
+					<!-- Topics内画像 -->
+					<img src="pics/topic03.png" alt="注目ニュース3">
+						<span class="topics_headline">
+							期待作『Warm?』の国内パブリッシャーがクラフトボックス・ソフトウェアに決定。日本語吹替PVも公開
+						</span>
+						<!-- テキスト見切れをカバーするためのオーバーレイ -->
+						<span class="topics_overlay"></span>
+				</a>
+				<a href="#" class="topics">
+					<img src="pics/topic04.png" alt="">
+					<span class="topics_headline">
+						『No More Sorrow』のコンセプトアートが複数公開。近くゲームプレイ映像の公開も予告。
+					</span>
+					<!-- テキスト見切れをカバーするためのオーバーレイ -->
+					<span class="topics_overlay"></span>
+				</a>
+			</li>
+		</ul>
+	
+		<!-- メインコンテンツエリア -->
+		<div class="contents_area">
+			<!-- 新着ニュース表示欄 -->
+			<div class="news">
+				<article>
+					<!-- 記事タイトル -->
+					<h2 class="news_title"><a href="#">人類世界の終末のさらにその後を旅する『An Eternity Sequel』の初のプレイ映像が公開</a></h2>
+					<!-- 要素を横並びにするための汎用div -->
+					<div class="wrap_row">
+						<!-- 記事カテゴリタグ表示域 -->
+						<div class="tag_area">
+							<a href="#">News</a>
+							<a href="#">PC</a>
+							<a href="#">PS4</a>
+							<a href="#">Xbox One</a>
+						</div>
+						<!-- 記事投稿日時表示域 -->
+						<div class="date">
+							<time>2020/08/20 15:00:00</time>
+						</div>
+					</div>
+					<!-- 記事内画像 -->
+					<a href="#"><img src="pics/article01.png" alt="ニュース内画像"></a>
+					<!-- 記事本文 -->
+					<p>Rock'n'Roll Gamesが開発を進める期待作『An Eternity Sequel』、発表時のわずかな情報からいわゆるポストアポカリプス作品である事のみが判明していましたが、先ほど上記サイトが更新され、およそ10分にわたるゲームプレイ映像が公開されました。</p>
+					<p>映像では、主人公と思わしき人物が誰かの墓前に花を添えるシーンから始まり、馬に乗っての移動や遺跡の探索、禍々しい敵性生物からの逃亡などの興味深いディティールがアンビエントなBGMと共に収録されています。</p>
+					<!-- 全文へのリンク -->
+					<a href="#" class="fulltext_link">（記事全文を読む）</a>
+				</article>
+				<article>
+					<!-- 記事タイトル -->
+					<h2 class="news_title"><a href="#">名作ファンタジー小説のゲーム化『Knights of Betrayers』レビュー。ビデオゲームにおける新たな基準となる傑作の誕生</a></h2>
+					<!-- 要素を横並びにするための汎用div -->
+					<div class="wrap_row">
+						<!-- 記事カテゴリタグ表示域 -->
+						<div class="tag_area">
+							<a href="#">Reviews</a>
+							<a href="#">PC</a>
+							<a href="#">PS4</a>
+						</div>
+						<!-- 記事投稿日時表示域 -->
+						<div class="date">
+							<time>2020/08/20 15:00:00</time>
+						</div>
+					</div>
+					<!-- 記事内画像 -->
+					<a href="#"><img src="pics/article02.png" alt="ニュース内画像"></a>
+					<!-- 記事本文 -->
+					<p>B.J.タンキアン原作『騎士ユーリ』は、全作品の累計売り上げ数1億冊を誇る人気ファンタジー小説シリーズである。王道のファンタジー世界で繰り広げられる権謀術数や誇り高く魅力的な登場人物、そして彼らに容赦なく降り注ぐ過酷な運命がファンタジー小説ファンに広く支持され、いくつものコミカライズや映像化がなされてきた。そして、シリーズの中でも特に人気の高い『裏切りの軍団』がParabellum Softwareによってゲーム化される事がサプライズ発表されたのが2017年のWorld Game Fairであった。</p>
+					<p>それからおよそ3年の時を経てついに我々の手元に届いたそれは、原作世界の見事な映像化というだけでなく、極めて密度の高いオープンワールドに骨太なアクションが合わさった、ビデオゲームにおける新たな傑作であった。</p>
+					<!-- ネタバレ警告用クラス -->
+					<p class="netabare">※本記事には、『Knights of Betrayers』および原作『騎士ユーリ ～裏切りの軍団～』の物語に関するネタバレが含まれています</p>
+					<!-- 全文へのリンク -->
+					<a href="#" class="fulltext_link">（記事全文を読む）</a>
+				</article>
+				<article>
+					<!-- 記事タイトル -->
+					<h2 class="news_title"><a href="#">未知の惑星を開拓するRTS「B.L.U.E.」の海底を舞台にしたプレイ映像が公開。古代生物の遺骸など浪漫をかき立てるシーンも</a></h2>
+					<!-- 要素を横並びにするための汎用div -->
+					<div class="wrap_row">
+						<!-- 記事カテゴリタグ表示域 -->
+						<div class="tag_area">
+							<a href="#">News</a>
+							<a href="#">PC</a>
+						</div>
+						<!-- 記事投稿日時表示域 -->
+						<div class="date">
+							<time>2020/08/20 15:00:00</time>
+						</div>
+					</div>
+					<!-- 記事内画像 -->
+					<a href="#"><img src="pics/article03.png" alt="ニュース内画像"></a>
+					<!-- 記事本文 -->
+					<p>2020年Q4の発売を目指してVivid Lionが開発を続けている惑星開発RTS『B.L.U.E.』ですが、公式ツイッターにて開発は予定通り進み現在は最終的なブラッシュアップ段階である旨が<a href="#" class="link_underline">報告され</a>、あわせて海底を舞台にした新たなゲームプレイ映像が公開されました。</p>
+					<p>地上とはまったく異なる困難とより魅力的な報酬、また巨大な古代生物の遺骸を調査するユニークイベントなど、ゲーム後半のプレイがたっぷり収録された映像を以下より確認しましょう。</p>
+					<!-- 全文へのリンク -->
+					<a href="#" class="fulltext_link">（記事全文を読む）</a>
+				</article>
+				<article>
+					<!-- 記事タイトル -->
+					<h2 class="news_title"><a href="#">MOBA期待作『Galaxy Arena』の新たなヒーロー「KAORI☆BUBBLEGUM」が公開。プレイ映像のほか彼女が歌って踊るオリジナルソングのPVも</a></h2>
+					<!-- 要素を横並びにするための汎用div -->
+					<div class="wrap_row">
+						<!-- 記事カテゴリタグ表示域 -->
+						<div class="tag_area">
+							<a href="#">News</a>
+							<a href="#">PC</a>
+						</div>
+						<!-- 記事投稿日時表示域 -->
+						<div class="date">
+							<time>2020/08/20 15:00:00</time>
+						</div>
+					</div>
+					<!-- 記事内画像 -->
+					<a href="#"><img src="pics/article04.png" alt="ニュース内画像"></a>
+					<!-- 記事本文 -->
+					<p>第一回オープンβテストが間もなく開始される『Galaxy Arena』ですが、開発を行っているCyborg Chihuahua Studioの公式ツイッターより新たなヒーローとして、2015年の日本からタイムスリップしてきた元地下アイドルにして作中世界の銀河で今最も人気のアイドルという経歴を持つ「KAORI☆BUBBLEGUM」の参戦が<a href="#" class="link_underline">報じられました。</a></p>
+					<p>攻撃能力をほぼ持たない代わりに最高の支援能力を持つという彼女を用いたプレイ映像が早速公開されたほか、何と彼女のテーマソング「Legend of the Spaceborne Idol」のPVも同時に公開されています。</p>
+					<!-- 全文へのリンク -->
+					<a href="#" class="fulltext_link">（記事全文を読む）</a>
+				</article>
+				<article>
+					<!-- 記事タイトル -->
+					<h2 class="news_title"><a href="#">『SHOCKING KAMOME』Switch版が突如配信開始。相変わらずやりたい放題のローンチトレイラーも公開</a></h2>
+					<!-- 要素を横並びにするための汎用div -->
+					<div class="wrap_row">
+						<!-- 記事カテゴリタグ表示域 -->
+						<div class="tag_area">
+							<a href="#">News</a>
+							<a href="#">Nintendo Switch</a>
+						</div>
+						<!-- 記事投稿日時表示域 -->
+						<div class="date">
+							<time>2020/08/20 15:00:00</time>
+						</div>
+					</div>
+					<!-- 記事内画像 -->
+					<a href="#"><img src="pics/article05.png" alt="ニュース内画像"></a>
+					<!-- 記事本文 -->
+					<p>シュールでサイケデリックな世界観に限界まで敷き詰められた古今東西のサブカルチャーのパロディと、高難易度アクションゆえに繰り返されるやたらと豊富なカモメの死に様（オマケに<a href="#" class="link_underline">公式</a>
+					<a href="#" class="link_underline">ツイッター</a>
+					<a href="#" class="link_underline">アカウント</a>
+					<a href="#" class="link_underline">の</a>
+					<a href="#" class="link_underline">数々の</a>
+					<a href="#" class="link_underline">奇行</a>）でゲーム配信コミュニティを中心に話題をかっさらっていった怪作『SHOCKING KAMOME』ですが、先ほど公式ツイッターが「突然ですがSwitch版SHOCKING KAMOMEがそろそろNintendo Storeで配信されてると思います」とツイートし、<a href="#" class="link_underline">本当に購入可能となっている</a>ことが確認されました。</p>
+					<p>あわせてローンチトレイラーも公開されましたが、冒頭から「A HIDEKI OOSHIMA GAME」と制作に一切関わっていないはずの大島秀樹氏を勝手に巻き込み、ゲームプレイ映像の合間にはどういうわけかカモメが、SFCの名作『ヨッシーアイランド』の敵キャラクターである「キューちゃん」への敵意を剥き出しにする映像が挿入され、挙げ句の果てにはスマブラへの参戦を要求するなど混沌が極まったやりたい放題の内容となっております。</p>
+					<!-- 全文へのリンク -->
+					<a href="#" class="fulltext_link">（記事全文を読む）</a>
+				</article>
+			</div>
+			<!-- サイドメニュー -->
+			<div class="side_menu">
+				<!-- PR記事 -->
+				<div class="side_article">
+					<h3 class="side_category">PR</h3>
+					<article>
+						<a href="#"><img src="pics/side01.png" alt="サイド記事内画像"></a>
+						<div class="side_tag_area">
+							<a href="#">Interviews</a>
+						</div>
+						<h4 class="side_title">
+							<a href="#">新進気鋭の実力派3DCGスタジオ「Inuvegas」求人開始。求める人材やスタジオの今後についてインタビュー</a>
+						</h4>
+						<p>ゲーム業界のみならず、ハリウッドなど世界中の映像業界から注目を集める3DCGスタジオ「Inuvegas」が、関連する様々な分野の求人を開始。彼らが求める人材やスタジオの今後についてインタビューを行った。</p>
+					</article>
+				</div>
+				<!-- レビュー記事 -->
+				<div class="side_article">
+					<h3 class="side_category">Reviews</h3>
+					<article>
+						<a href="#"><img src="pics/side02.png" alt="サイド記事内画像"></a>
+						<div class="side_tag_area">
+							<a href="#">Reviews</a>
+						</div>
+						<h4 class="side_title">
+							<a href="#">『Wasteland Logistics.Inc』レビュー。輸送グループを率い末法の世を物流で制覇せよ</a>
+						</h4>
+						<p>国家の枠組みが崩壊した近未来を舞台に、輸送グループの一員としてトレーラーの運転や護衛を行い、やがては自分の輸送グループを立ち上げさらなる成り上がりを目指す『Wasteland Logistics.Inc』。ドライブシム、会社経営、TPSが一体となった独特のプレイフィールが特徴の新作のレビュー。</p>
+					</article>
+				</div>
+				<!-- コラム記事 -->
+				<div class="side_article">
+					<h3 class="side_category">Column</h3>
+					<article>
+						<a href="#"><img src="pics/side03.png" alt="サイド記事内画像"></a>
+						<div class="side_tag_area">
+							<a href="#">Column</a>
+						</div>
+						<h4 class="side_title">
+							<a href="#">【連載】廿日キューソの意識の低いゲーム配信講座 ～第六回「ぶっちゃけ個人でのアバター配信者ってナンボ儲かるの？」～</a>
+						</h4>
+						<p>自称「バーチャル弾き語り美少女ゲーマー日陰者ネズミお姉さん」こと廿日キューソが、流行りのLive2Dアバターを用いたゲーム配信に関する講座を行うという名目で好き放題書き散らかしていくDeep gamE唯一の無法地帯。連載一覧は<a class="link_underline" href="#">こちら。</a></p>
+					</article>
+				</div>
+				<!-- 本日の記事一覧 -->
+				<div class="side_article">
+					<h3 class="side_category">Today's News</h3>
+					<ul class="side_list">
+						<li><a href="#">人類世界の終末のさらにその後を旅する『An Eternity Sequel』の初のプレイ映像が公開</a></li>
+						<li><a href="#">名作ファンタジー小説のゲーム化『Knights of Betrayers』レビュー。ビデオゲームにおける新たな基準となる傑作の誕生</a></li>
+						<li><a href="#">未知の惑星を開拓するRTS「B.L.U.E.」の海底を舞台にしたプレイ映像が公開。古代生物の遺骸など浪漫をかき立てるシーンも</a></li>
+						<li><a href="#">MOBA期待作『Galaxy Arena』の新たなヒーロー「KAORI☆BUBBLEGUM」が公開。プレイ映像のほか彼女が歌って踊るオリジナルソングのPVも</a></li>
+						<li><a href="#">『SHOCKING KAMOME』Switch版が突如配信開始。Dead Resortをパロディしたローンチトレイラーも公開</a></li>
+						<li><a href="#">"01-LEX"ことMyles Sutherland氏が自身のゲームスタジオ「SCRIMMAGE」を設立。今後の活動についても語る</a></li>
+						<li><a href="#">『Dying Breed』の次回アップデート計画についてコミュニティマネージャーが報告。バグFIXを最優先に鋭意作業中</a></li>
+						<li><a href="#">『Vermilion Sky 2』数量限定デラックス版の特典が公開。限定スタチューやブックレット等ファン必携アイテムの数々</a></li>
+						
+					</ul>
+				</div>
+				<!-- ゲームカレンダー -->
+				<div class="side_article">
+					<h3 class="side_category">Game release<br>&amp; event calendar</h3>
+					<ul class="side_list">
+						<p>2020 / 08 / 27</p>
+						<li><a href="#">Ring of Honor Ⅳ</a></li>
+						<li><a href="#">ラスト・ワード</a></li>
+						<li><a href="#">ドクター・モンテカルロと世界の底のタービン</a></li>
+						<p>2020 / 09 / 03</p>
+						<li><a href="#">Rusty Arms</a></li>
+						<li><a href="#">京都インディーゲームサミット</a></li>
+						<p>2020 Q3～Q4</p>
+						<li><a href="#">Galaxy Arena</a></li>
+						<li><a href="#">B.L.U.E.</a></li>
+						<p>2021</p>
+						<li><a href="#">Edge of Destiny</a></li>
+						<li><a href="#">Monster World : New Continent</a></li>
+						<li><a href="#">Black Blade</a></li>
+						<p>発売日未定</p>
+						<li><a href="#">STEAMPUNK 1868</a></li>
+						<li><a href="#">Purple Heart : American Warfare</a></li>
+						<li><a href="#">Titan Slayer</a></li>
+						<li><a href="#">No More Sorrow</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- ページリンクボタンエリア -->
+		<div class="page_area">
+			<div class="current">1</div>
+			<a href="" class="page_link">2</a>
+			<a href="" class="page_link">3</a>
+			<p>…</p>
+			<a href="" class="page_link">999</a>
+			<a href="" class="page_link">＞</a>
+		</div>
+	</main>
+	
+	<footer>
+		<div class="wrap_row">
+			<!-- フッター内テキストエリア -->
+			<div class="footer_text_area">
+				<div class="footer_logo_area">
+					<h4 class="footer_logo">Deep gamE</h4><span class="tsuite">について</span>
+				</div>
+				<p>Deep gamEは、単なるプレスリリースのコピペに留まらない<br>
+				「ゲームを愛する者たちに最も信頼されるゲームメディア」を目指して運営されています。</p>
+				<p>記事掲載などに関するお問い合わせは、<a href="#" class="link_underline">コンタクトフォーム</a>までお願いします。</p>
+			</div>
+			<!-- フッター内SNSエリア -->
+			<div class="footer_sns_area">
+				<p>SNS</p>
+				<div class="wrap_row">
+					<!-- SNSアイコン表示域 -->
+					<ul class="sns_icon">
+						<li><i class="fab fa-youtube"></i></li>
+						<li><i class="fab fa-twitter"></i></li>
+						<li><i class="fab fa-facebook-f"></i></li>
+						<li><i class="fas fa-rss"></i></li>
+					</ul>
+					<!-- SNSリンク表示域 -->
+					<ul class="sns_link">
+						<li><a href="#" class="link_underline">Youtube</a></li>
+						<li><a href="#" class="link_underline">Twitter</a></li>
+						<li><a href="#" class="link_underline">Facebook</a></li>
+						<li><a href="#" class="link_underline">RSS feed</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- コピーライト表記 -->
+		<div class="copyright">© 2020 Shoichirou-Shirakawa</div>
+	</footer>
+
+	<!-- ページトップへ戻るボタン -->
+	<div class="page_top">
+		<a href="#">
+			<i class="fas fa-angle-double-up"></i>
+			<p>PAGE TOP</p>
+		</a>
+	</div>
+</body>
+
+</html>
