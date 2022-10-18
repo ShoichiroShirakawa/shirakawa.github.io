@@ -52,7 +52,7 @@ header {
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
-	height: 90px;
+	height: 120px;
 	white-space: nowrap;
 	justify-content: space-between;
 }
@@ -70,6 +70,10 @@ header {
 	min-width: 950px;
 	text-align: center;
 	vertical-align: middle;
+}
+
+.sub-head{
+	margin: auto auto;
 }
 
 /* PC用メニュー共通
@@ -321,10 +325,10 @@ main{
 /* サイドメニューカテゴリー */
 .side_article .side_category{
 	width: 100%;
-	height: 45px;
+	height: 40px;
 	padding: 5px 0 0 5px;
 	font-family: 'Orbitron', sans-serif;
-	font-size: 2em;
+	font-size: 1.6em;
 	color: #e37422;
 	background-color: #3e3a39;
 }
@@ -388,7 +392,7 @@ main{
 }
 .side_article .side_list li>a{
 	margin: 5px 0;
-	height: ;
+	height: auto;
 }
 .side_article .side_list li>a:hover{
 	font-weight: 500;
@@ -448,20 +452,26 @@ main{
 
 footer{
 	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 	width: 100%;
 	min-width: 950px;
-	height: auto;
+	height: 40vh;
 	min-height: 200px;
 	color: #f7f8f8;
-	padding: 20px 10% 10px 10%;
+	padding: 2vh 10%;
 	background-color: #3e3a39;
 }
 footer>.wrap_row{
+	width: 100%;
 	justify-content: flex-start;
 }
 
 /* フッター内ロゴと付随テキスト */
 .footer_text_area{
+	display: flex;
+	flex-flow: column;
 	width: 60%;
 }
 .footer_text_area .footer_logo_area{
@@ -481,7 +491,7 @@ footer>.wrap_row{
 
 /* フッター内サイト説明 */
 .footer_text_area p{
-	margin: 30px 0;
+	margin: 4vh 0 0 0;
 }
 
 /* フッター内SNSエリアの各設定 */
@@ -508,8 +518,7 @@ footer>.wrap_row{
 footer .copyright{
 	width: 100%;
 	font-size: 0.9em;
-	margin: 5px 0;
-	bottom: 0;
+	align-self: flex-end;
 	text-align: center;
 }
 
@@ -594,6 +603,7 @@ footer .copyright{
 	.site_logo>a:visited{
 		width: auto;
 		min-width: initial;
+		margin: 1vh 0 0 0;
 		font-size: 9vw;
 		vertical-align: middle;
 	}
@@ -646,7 +656,12 @@ footer .copyright{
 	.nav_mb{
 		display: block;
 		width: auto;
-		font-size: 2em;
+		height: 100%;
+		font-size: 1.5em;
+	}
+
+	.nav_mb>ul{
+		height: 100%;
 	}
 	.nav_mb>ul>.search_pc>input{
 		width: 70%;
@@ -658,6 +673,7 @@ footer .copyright{
 		height: auto;
 	}
 	.nav_mb>ul>li{
+		margin: 0.6vh 0;
 		padding: 2px 0;
 	}
 	.nav_mb>ul>li>.nav_mb_space{
@@ -672,6 +688,11 @@ footer .copyright{
 		margin-right: 5%;
 		width: 9vw;
 		height: 8vw;
+	}
+
+	.sub-head{
+		font-size: 0.8rem;
+		margin: 0 auto 1vh auto;
 	}
 
 	/* 閉じるボタンの各設定 */
@@ -736,11 +757,11 @@ footer .copyright{
 	}
 	.side_article .side_category,
 	.side_article:nth-of-type(4) .side_category{
-		height: 12vw;
-		font-size: 10vw;
+		height: auto;
+		font-size: 6vw;
 		text-align: center;
 		vertical-align: middle;
-		padding: auto;
+		padding: 1vh 0;
 	}
 	/* Today's Newsの「y」がはみ出るので
 	ここのみpaddingをリセット */
@@ -781,13 +802,13 @@ footer .copyright{
 	/* メイン個別記事の各要素を
 	モバイル向けに変更および調整 */
 	.news article{
-		margin-bottom: 80px;
+		margin-bottom: 5vh;
 		height: auto;
 	}
 	.news article .news_title{
 		position: absolute;
-		font-size: 4.5vw;
-		margin: 1.5em 0 0 35%;
+		font-size: 4vw;
+		margin: 6vh 0 0 35%;
 		line-height: 1.1em;
 	}
 	.news article .news_title>a{
@@ -796,8 +817,13 @@ footer .copyright{
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp: 4;
 	}
+
+	.news article .date{
+		font-size: 0.8rem;
+	}
+
 	.news article .tag_area>a{
-		font-size: 1.2em;
+		font-size: 1em;
 	}
 	.news article img{
 		width: 30%;
