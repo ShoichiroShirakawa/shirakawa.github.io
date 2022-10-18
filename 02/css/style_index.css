@@ -78,7 +78,7 @@ header>p{
 	right: 0;
 	width: 60px;
 	height: 60px;
-	margin: 3vw 1.5vw 0 0;
+	margin: 3vh 3vw 0 0;
 	padding: 10px 0 0 5px;
 	color: #fffddf;
 	border-radius: 6px;
@@ -216,7 +216,7 @@ header>p{
 	display: inline-block;
 	top: 0;
 	left: 45vw;
-	margin: 3vw 0 0 1.5vw;
+	margin: 3vh 0 0 3vw;
 }
 .hamburger label{
 	position: relative;
@@ -270,7 +270,7 @@ header>p{
 
 /* メイン共通 */
 main{
-	padding: 10% 3vw;
+	padding: 10% 3.2vw;
 	width: 100%;
 	height: auto;
 }
@@ -439,8 +439,8 @@ footer{
 		justify-content: flex-start;
 	}
 	.nav_pc ul li{
-		font-size: 1.1rem;
-		margin: 0 1.1rem 0 0;
+		font-size: 1rem;
+		margin: 0 1.5rem 0 0;
 		position: relative;
 	}
 	/* PC向けメニューhover時の下線アニメーション */
@@ -629,10 +629,9 @@ footer{
 	.footer_sns{
 		position: absolute;
 		margin: 0;
-		width: 30%;
+		width: 100%;
 		top: 0;
-		right: 0;
-		
+		padding: 0 35%;
 	}
 	
 	
