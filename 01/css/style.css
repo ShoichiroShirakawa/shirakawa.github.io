@@ -91,12 +91,17 @@ header {
 	z-index: 9999;
 }
 .nav_pc a,
-.nav_pc a:hover,
 .nav_pc a:visited{
 	display: inline;
 	font-size: 18px;
 	color: #f7f8f8;
 	margin: 5px 10px;
+	transition: .3s;
+}
+
+.nav_pc a:hover{
+	color: #e37422;
+	
 }
 
 /* PC用メニュー上段 */
@@ -161,9 +166,9 @@ header {
 ---------------------- */
 main{
 	position: relative;
-	margin: 60px 10% auto 10%;
+	margin: 60px auto auto auto;
 	width: 80vw;
-	min-width: 950px;
+	max-width: 1090px;
 	height: auto;
 	min-height: 100vh;
 }
@@ -259,6 +264,7 @@ main{
 	max-width: 100%;
 	height: auto;
 	margin-bottom: 10px;
+	line-height: 2.3rem;
 }
 .news article .news_title:hover{
 	text-decoration: underline;
@@ -326,18 +332,17 @@ main{
 .side_article .side_category{
 	width: 100%;
 	height: 40px;
-	padding: 5px 0 0 5px;
 	font-family: 'Orbitron', sans-serif;
-	font-size: 1.6em;
+	font-size: 1.5rem;
+	display: flex;
+  justify-content: center;
+  align-items: center;
 	color: #e37422;
 	background-color: #3e3a39;
 }
-.side_article:nth-of-type(4) .side_category{
-	font-size: 1.6em;
-	padding-top: 9px;
-}
+
 .side_article:nth-of-type(5) .side_category{
-	font-size: 1.2em;
+	font-size: 1.1rem;
 }
 
 /* サイド記事内画像 */
@@ -367,6 +372,7 @@ main{
 .side_article article .side_title{
 	font-size: 1.3em;
 	font-weight: 500;
+	line-height: 1.6rem;
 }
 .side_article article .side_title:hover{
 	text-decoration: underline;
@@ -729,6 +735,7 @@ footer .copyright{
 	main{
 		min-width: initial;
 		width: 100%;
+		
 		margin: 140px 0 80px 0;
 		padding: 0 1%;
 	}
@@ -743,6 +750,7 @@ footer .copyright{
 	.contents_area{
 		display: block;
 		width: 100%;
+
 	}
 	.news{
 		width: 100%;
