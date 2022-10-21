@@ -16,6 +16,25 @@
 		width: 100%;
 		padding: 0 3vw;
 	}
+	.flex-area{
+		display: flex;
+		justify-content: space-around;
+	}
+	.flex-item{
+		width: 27%;
+		padding: 0 1vw;
+	}
+	img{
+		width: 100%;
+		height: auto;
+    filter: drop-shadow(0px 0px 2px rgba(0,0,0,.8));
+		margin-bottom: 2vh;
+		transition: .3s ease;
+	}
+	img:hover{
+		transform:scale(1.05,1.05);
+		filter: drop-shadow(0px 0px 10px rgba(0,0,0,.8));
+	}
 	ul {
 		margin: 0 0 5vh 0;
 	}
@@ -24,44 +43,70 @@
 		padding: 0;
 	}
 	footer{
-		position: absolute;
-		box-sizing: border-box;
+		position: fixed;
 		bottom: 0;
 		width: 100%;
+		background-color: white;
 	}
 	.copy{
 		width: 100%;
 		text-align: center;
 		box-sizing: border-box;
 	}
+	@media screen and (max-width: 750px) {
+		.flex-area{
+			flex-wrap: wrap;
+		}
+		.flex-item{
+			width: 100%;
+		}
+	}
 </style>
 <body>
 	<div class="wrap">
+		
 		<p>全てGoogle Chrome、PCでの閲覧を推奨としております。</p>
 		<br>
-		<h2><a href="01/index.html" target="_blank" rel="noopener noreferrer">01_架空のビデオゲーム情報サイト</a></h2>
-		<ul>
-			<li>画面幅に応じたレスポンシブデザイン</li>
-			<li>javascriptを用いたハンバーガーメニューの実装</li>
-			<li>jQueryを用いた「PAGE TOP」ボタンの実装</li>
-			<li>サイト内テキストおよびイラスト素材は全て自作</li>
-		</ul>
-		<h2><a href="02/index.html" target="_blank" rel="noopener noreferrer">02_架空の楽器ブランドオンラインショップ</a></h2>
-		<ul>
-			<li>画面幅に応じたレスポンシブデザイン</li>
-			<li>商品カートボタンタップ時のモーダルウィンドウの実装</li>
-			<li>商品個別ページにおける画像一覧の実装、<br>
-				および画面幅縮小時の商品説明のモーダル風レイアウト</li>
-			<li>チェックボックスを用いたスライド式メニューの実装、<br>
-				およびjavascriptを用いたチェックボックスの制御</li>
-		</ul>
-			<h2><a href="03/index.html" target="_blank" rel="noopener noreferrer">03_架空の映画公式サイト</a></h2>
-		<ul>
-			<li>VueによるSPA構成</li>
-			<li>画面幅に応じたレスポンシブデザイン</li>
-			<li>動画背景の実装</li>
-			<li>各動画はフリー素材を元に作成</li>
-		</ul>
+		<div class="flex-area">
+		<div class="flex-item">
+			
+			<h2><a href="01/index.html" target="_blank" rel="noopener noreferrer">
+				<img src="./loot_thumb/01.png" alt="">
+				01_架空のビデオゲーム情報サイト</a></h2>
+			<ul>
+				<li>画面幅に応じたレスポンシブデザイン</li>
+				<li>javascriptを用いたハンバーガーメニューの実装</li>
+				<li>jQueryを用いた「PAGE TOP」ボタンの実装</li>
+				<li>サイト内テキストおよびイラスト素材は全て自作</li>
+			</ul>
+		</div>
+		<div class="flex-item">
+			
+			<h2><a href="02/index.html" target="_blank" rel="noopener noreferrer">
+				<img src="./loot_thumb/02.png" alt="">
+				02_架空の楽器ブランドオンラインショップ</a></h2>
+			<ul>
+				<li>画面幅に応じたレスポンシブデザイン</li>
+				<li>商品カートボタンタップ時のモーダルウィンドウの実装</li>
+				<li>商品個別ページにおける画像一覧の実装、
+					および画面幅縮小時の商品説明のモーダル風レイアウト</li>
+				<li>チェックボックスを用いたスライド式メニューの実装、
+					およびjavascriptを用いたチェックボックスの制御</li>
+			</ul>
+		</div>
+		<div class="flex-item">
+			
+			<h2><a href="03/index.html" target="_blank" rel="noopener noreferrer">
+				<img src="./loot_thumb/03.png" alt="">
+				03_架空の映画公式サイト</a></h2>
+			<ul>
+				<li>VueによるSPA構成</li>
+				<li>画面幅に応じたレスポンシブデザイン</li>
+				<li>動画背景の実装</li>
+				<li>各動画はフリー素材を元に作成</li>
+			</ul>
+		</div>
+	</div>
 	</div>
 	<footer>
 		<p class="copy">© 2022 Shoichirou-Shirakawa</p>
