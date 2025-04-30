@@ -9,7 +9,9 @@ let nowWidth = window.matchMedia('(min-width: 900px)');
 const checkOut = function(nowWidth){
 	if(nowWidth.matches){
 		checkSlide.checked = false;
-		checkSpec.checked = false;
+		if(checkSpec){
+			checkSpec.checked = false;
+		}
 	}
 }
 
