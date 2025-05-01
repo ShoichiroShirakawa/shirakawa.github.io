@@ -72,6 +72,10 @@ header {
 	vertical-align: middle;
 }
 
+.site_logo{
+	padding: 1rem;
+}
+
 .sub-head{
 	margin: auto auto;
 }
@@ -204,14 +208,14 @@ main{
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	height: auto;
+	height: 100%;
 	min-height: 50%;
 	padding: 0 2%;
 	z-index:8000;
 	color: #f7f8f8;
 	line-height: 1.5;
 	background-color: rgba(62,58,57,0.5);
-	transform: translate3d(0,70%,0);
+	transform: translate3d(0,0,0);
 	transition: .3s;
 }
 .topics_overlay{
@@ -226,7 +230,7 @@ main{
 	transition: .3s;
 }
 .topics:hover .topics_headline{
-	transform: translate3d(0,0,0);
+	transform: translate3d(0,70%,0);
 }
 .topics:hover .topics_overlay{
 	opacity: 0;
@@ -325,7 +329,7 @@ main{
 .side_article{
 	width: 100%;
 	height: auto;
-	margin-bottom: 100px;
+	margin-bottom: 40px;
 }
 
 /* サイドメニューカテゴリー */
